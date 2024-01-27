@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text } from 'react-native'
 import PingInput from '../../components/Ping/PingInput/PingInput'
 import PingResults from '../../components/Ping/PingResults/PingResults'
 import {useNetInfo} from "@react-native-community/netinfo"
@@ -49,14 +49,7 @@ const Ping = () => {
           iterationsHandler={setIterations}
           pingHandler={() => ping()}
           disableButton={disableButton}/>
-        <PingResults/>
-        {pingResults.length !== 0 ?
-          <FlatList
-          data={pingResults}
-          renderItem={({item}) => {
-            return <Text>{item} ms</Text>
-          }} /> :
-          <Text>Ping a website!</Text>}
+        <PingResults results={pingResults}/>
         <Text>Type: {netInfo.type}</Text>
       <Text>Is Connected? {netInfo.isConnected?.toString()}</Text>
     </View>
