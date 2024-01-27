@@ -1,0 +1,8 @@
+export const COLOR_PRIMARY: string = "#009688"
+export const COLOR_LIGHT_PRIMARY: string = "#B2DFDB"
+export const COLOR_DARK_PRIMARY: string = "#00796B"
+export const COLOR_ACCCENT: string = "#607D8B"
+export const COLOR_PRIMARY_TEXT: string = "#212121"
+export const COLOR_SECONDARY_TEXT: string = "#757575"
+export const COLOR_CANCEL: string = "#D32F2F"
+export const COLOR_DIVIDER: string = "#BDBDBD"
