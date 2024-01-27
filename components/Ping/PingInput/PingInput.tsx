@@ -30,7 +30,7 @@ const PingInput = ({addressHandler, iterationsHandler, pingHandler, disableButto
             <Pressable 
                 disabled={disableButton}
                 onPress={() => pingHandler()} 
-                style={styles.pressableContainer}>
+                style={!disableButton ? styles.pressableContainer : styles.disabledPressableContainer}>
                 {({ pressed }) => (
                 <View>
                 <Image

@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
       pressableContainer: {
         alignItems: 'center',
       },
+      disabledPressableContainer: {
+        opacity: 0.3,
+        alignItems: 'center',
+      },
       pressableImage: {
         width: 100,
         height: 100,
