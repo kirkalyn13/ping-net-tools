@@ -8,7 +8,6 @@ interface PingResultsProps {
 const PingResults = ({ results = [] }: PingResultsProps) => {
   return (
     <View>
-        <Text>Ping Results</Text>
         {results.length !== 0 ?
           <FlatList
           data={results}

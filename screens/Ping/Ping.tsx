@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import PingInput from '../../components/Ping/PingInput/PingInput'
 import PingResults from '../../components/Ping/PingResults/PingResults'
-import {useNetInfo} from "@react-native-community/netinfo"
 import { getFullAddress } from '../../utilities/helper'
+import NetworkSummary from '../../components/NetworkSummary/NetworkSummary'
 
 const Ping = () => {
   const [ address, setAddress ] = useState<string>("")
   const [ iterations, setIterations ] = useState<number>(1)
   const [ pingResults, setPingResults ] = useState<number[]>([]);
-  const netInfo = useNetInfo();
 
   const ping = () => {
       console.log(`PING: ${address}, ${iterations} times`)
@@ -44,14 +43,13 @@ const Ping = () => {
 
   return (
     <View>
-        <PingInput
-          addressHandler={setAddress}
-          iterationsHandler={setIterations}
-          pingHandler={() => ping()}
-          disableButton={disableButton}/>
-        <PingResults results={pingResults}/>
-        <Text>Type: {netInfo.type}</Text>
-      <Text>Is Connected? {netInfo.isConnected?.toString()}</Text>
+      <NetworkSummary />
+      <PingInput
+        addressHandler={setAddress}
+        iterationsHandler={setIterations}
+        pingHandler={() => ping()}
+        disableButton={disableButton}/>
+      <PingResults results={pingResults}/>
     </View>
   )
 }
