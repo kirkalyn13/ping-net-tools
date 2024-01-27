@@ -1,0 +1,1 @@
+export const getFullAddress = (address: string): string =>  "http://" + address

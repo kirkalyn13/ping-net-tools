@@ -16,7 +16,7 @@ const PingInput = ({addressHandler, iterationsHandler, pingHandler, disableButto
             <View style={styles.textInputContainer}>
                 <TextInput 
                     style={styles.textInput} 
-                    placeholder="Enter IP Address"
+                    placeholder="Enter Web Address"
                     onChangeText={(text: string) => addressHandler(text)}
                     />
                 <TextInput 
