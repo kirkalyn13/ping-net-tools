@@ -1,8 +1,10 @@
 import React from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, FlatList } from 'react-native'
+import PingWaiting from './PingWaiting/PingWaiting'
+import PingResultItem from './PingResultItem/PingResultItem'
 
 interface PingResultsProps {
-  results: any[]
+  results: PingResult[]
 }
 
 const PingResults = ({ results = [] }: PingResultsProps) => {
@@ -12,9 +14,8 @@ const PingResults = ({ results = [] }: PingResultsProps) => {
           <FlatList
           data={results}
           renderItem={({item}) => {
-            return <Text>{item} ms</Text>
-          }} /> :
-          <Text>Ping a website!</Text>}
+            return <PingResultItem result={item} />
+          }} /> : <PingWaiting />}
     </View>
   )
 }
