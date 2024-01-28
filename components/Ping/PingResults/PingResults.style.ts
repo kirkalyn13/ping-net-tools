@@ -14,6 +14,9 @@ const styles = StyleSheet.create({
     resultUrl: {
         fontSize: 16,
         fontWeight: "bold"
+    },
+    loading: {
+        marginTop: 48,
     }
   });
 

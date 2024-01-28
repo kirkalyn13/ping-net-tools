@@ -11,9 +11,11 @@ const Ping = () => {
   const [ iterations, setIterations ] = useState<number>(1)
   const [ currentResult, setCurrentResult ] = useState<PingResult | null>(null)
   const [ pingResults, setPingResults ] = useState<PingResult[]>([]);
+  const [ loading, setLoading ] = useState(false)
 
   const ping = () => {
       setCurrentResult(null)
+      setLoading(true)
 
       for(let i = 1; i <= iterations; i++) {
           const startTime: number = Date.now()
@@ -47,6 +49,10 @@ const Ping = () => {
     else setPingResults([...pingResults, currentResult])
   },[ currentResult ])
 
+  useEffect(() => {
+    if (pingResults.length == iterations) setLoading(false)
+  }, [ pingResults])
+
   const disableButton: boolean = address === "" || !iterations
 
   return (
@@ -60,7 +66,8 @@ const Ping = () => {
         disableButton={disableButton}/>
       <PingResults 
         url={getFullAddress(address)}
-        results={pingResults}/>
+        results={pingResults}
+        loading={loading} />
     </View>
   )
 }
