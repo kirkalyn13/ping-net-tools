@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { COLOR_GREEN, COLOR_PRIMARY, COLOR_RED } from '../../styles/Colors.styles'
+import { COLOR_GREEN, COLOR_PRIMARY, COLOR_RED, COLOR_SECONDARY_TEXT, COLOR_WHITE } from '../../styles/Colors.styles'
 
 const styles = StyleSheet.create({
       container: {
@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8,
         borderRadius: 5,
         fontWeight: "bold",
-        backgroundColor: COLOR_RED
+        backgroundColor: COLOR_SECONDARY_TEXT,
+        color: COLOR_WHITE
       },
       networkTypeContainer: {
         flexDirection: "row",
