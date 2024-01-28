@@ -24,7 +24,7 @@ const PingResults = ({ url, results = [], loading }: PingResultsProps) => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
         { !loading ?
         <>
           {results.length !== 0 && listHeader()}

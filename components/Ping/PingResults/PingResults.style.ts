@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
+    container: {
+        height: "50%"
+    },
     resultLabelContainer: {
         flexDirection: "row",
         justifyContent: "flex-start",
