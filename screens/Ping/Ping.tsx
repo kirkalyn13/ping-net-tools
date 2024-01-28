@@ -1,45 +1,66 @@
-import { useState } from 'react'
-import { View, Text } from 'react-native'
+import { useState, useEffect } from 'react'
+import { View } from 'react-native'
 import PingInput from '../../components/Ping/PingInput/PingInput'
 import PingResults from '../../components/Ping/PingResults/PingResults'
-import {useNetInfo} from "@react-native-community/netinfo"
+import { getFullAddress } from '../../utilities/helper'
+import NetworkSummary from '../../components/NetworkSummary/NetworkSummary'
+import Header from '../../components/Header/Header'
 
 const Ping = () => {
   const [ address, setAddress ] = useState<string>("")
-  const [ iterations, setIterations ] = useState<number>(0)
-  const [ pingTime, setPingTime ] = useState<number | null>(null);
-  const netInfo = useNetInfo();
+  const [ iterations, setIterations ] = useState<number>(1)
+  const [ currentResult, setCurrentResult ] = useState<PingResult | null>(null)
+  const [ pingResults, setPingResults ] = useState<PingResult[]>([]);
 
-  const ping = async () => {
-      console.log(`PING: ${address}, ${iterations} times`)
-      const startTime = Date.now();
-      try {
-        const response = await fetch(address);
-        console.log(1)
-        const endTime = Date.now();
-        console.log(2)
-        const timeTaken = endTime - startTime;
-        console.log(3)
-        setPingTime(timeTaken);
-      } catch (error) {
-        console.error('Ping test failed:', error);
-      }
+  const ping = () => {
+      setCurrentResult(null)
 
+      for(let i = 1; i <= iterations; i++) {
+          const startTime: number = Date.now()
+          fetch(getFullAddress(address))
+            .then((response) => {
+              const endTime: number = Date.now()
+              const timeTaken: number = endTime - startTime
+              const result: PingResult = {
+                iteration: i,
+                status: response.status,
+                time: timeTaken,
+              }
+              
+              return result
+            })
+            .then((result: PingResult) => setCurrentResult(result))
+            .catch((error: Error) => {
+                setCurrentResult({
+                  iteration: i,
+                  status: 500,
+                  time: 0,
+                  error: error.toString()
+                })
+            }
+          )
+        }
   } 
+
+  useEffect(() => {
+    if (currentResult === null) setPingResults([])
+    else setPingResults([...pingResults, currentResult])
+  },[ currentResult ])
 
   const disableButton: boolean = address === "" || !iterations
 
   return (
     <View>
-        <PingInput
-          addressHandler={setAddress}
-          iterationsHandler={setIterations}
-          pingHandler={() => ping()}
-          disableButton={disableButton}/>
-        <PingResults/>
-        <Text>{ !pingTime ? "Ping an IP!" : pingTime}</Text>
-        <Text>Type: {netInfo.type}</Text>
-      <Text>Is Connected? {netInfo.isConnected?.toString()}</Text>
+      <Header />
+      <NetworkSummary />
+      <PingInput
+        addressHandler={setAddress}
+        iterationsHandler={setIterations}
+        pingHandler={() => ping()}
+        disableButton={disableButton}/>
+      <PingResults 
+        url={getFullAddress(address)}
+        results={pingResults}/>
     </View>
   )
 }
