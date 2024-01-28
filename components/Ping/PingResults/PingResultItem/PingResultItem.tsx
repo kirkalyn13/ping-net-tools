@@ -7,8 +7,10 @@ interface PingResultItemProps {
 }
 
 const isSuccess = (status: number): boolean => ( status >= 200 && status < 300 ) ? true: false
+const cleanErrorString = (error: string): string => error.replace(/^TypeError: /, '')
 
 const PingResultItem = ({ result }: PingResultItemProps) => {
+  console.log(result)
   return (
     <View 
       key={result.iteration}
@@ -19,7 +21,8 @@ const PingResultItem = ({ result }: PingResultItemProps) => {
           {result.status}
         </Text>
       </View>
-      <Text>{result.time} ms</Text>
+      {!result.error ? <Text>{result.time} ms</Text> : <Text style={styles.error}>{cleanErrorString(result.error ?? "")}</Text>}
+      
     </View>
   )
 }

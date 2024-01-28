@@ -33,6 +33,9 @@ const styles = StyleSheet.create({
         backgroundColor: COLOR_RED,
         color: COLOR_WHITE
       },
+      error: {
+        overflow: "scroll"
+      }
   });
 
 export default styles

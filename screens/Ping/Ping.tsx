@@ -30,8 +30,13 @@ const Ping = () => {
               return result
             })
             .then((result: PingResult) => setCurrentResult(result))
-            .catch((error) => {
-                console.error('Network Error: ' + error)
+            .catch((error: Error) => {
+                setCurrentResult({
+                  iteration: 1,
+                  status: 400,
+                  time: 0,
+                  error: error.toString()
+                })
             }
           )
         }
