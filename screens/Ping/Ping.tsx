@@ -13,7 +13,6 @@ const Ping = () => {
   const [ pingResults, setPingResults ] = useState<PingResult[]>([]);
 
   const ping = () => {
-      console.log(`PING: ${address}, ${iterations} times`)
       setCurrentResult(null)
 
       for(let i = 1; i <= iterations; i++) {
@@ -32,7 +31,7 @@ const Ping = () => {
             })
             .then((result: PingResult) => setCurrentResult(result))
             .catch((error) => {
-                console.log('Network Error: ' + error)
+                console.error('Network Error: ' + error)
             }
           )
         }
