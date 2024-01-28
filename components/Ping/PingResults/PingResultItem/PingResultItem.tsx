@@ -13,10 +13,12 @@ const PingResultItem = ({ result }: PingResultItemProps) => {
     <View 
       key={result.iteration}
       style={styles.container}>
-      <Text>{result.iteration}</Text>
-      <Text style={isSuccess(result.status) ? styles.success : styles.failed}>
-        {result.status}
-      </Text>
+      <View style={styles.leftContainer}>
+        <Text style={styles.iteration}>{result.iteration}:</Text>
+        <Text style={isSuccess(result.status) ? styles.success : styles.failed}>
+          {result.status}
+        </Text>
+      </View>
       <Text>{result.time} ms</Text>
     </View>
   )

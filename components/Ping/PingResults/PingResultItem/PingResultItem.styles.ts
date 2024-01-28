@@ -9,6 +9,15 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         paddingVertical: 8,
       },
+      leftContainer: {
+        width: "50%",
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "flex-start"
+      },
+      iteration: {
+        marginRight: 8,
+      },
       success: {
         paddingVertical: 2,
         paddingHorizontal: 8,
