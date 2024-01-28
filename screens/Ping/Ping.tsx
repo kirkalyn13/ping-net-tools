@@ -15,7 +15,6 @@ const Ping = () => {
   const ping = () => {
       console.log(`PING: ${address}, ${iterations} times`)
       setCurrentResult(null)
-      let results: PingResult[] = []
 
       for(let i = 1; i <= iterations; i++) {
           const startTime: number = Date.now()
