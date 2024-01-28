@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
-import styles from '../PingResults.style'
+import styles from './PingWaiting.styles'
 
 const getSrcPath = require("../../../../assets/images/do-ping.png")
 

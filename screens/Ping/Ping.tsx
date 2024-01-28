@@ -58,7 +58,9 @@ const Ping = () => {
         iterationsHandler={setIterations}
         pingHandler={() => ping()}
         disableButton={disableButton}/>
-      <PingResults results={pingResults}/>
+      <PingResults 
+        url={getFullAddress(address)}
+        results={pingResults}/>
     </View>
   )
 }
