@@ -4,6 +4,7 @@ import PingInput from '../../components/Ping/PingInput/PingInput'
 import PingResults from '../../components/Ping/PingResults/PingResults'
 import { getFullAddress } from '../../utilities/helper'
 import NetworkSummary from '../../components/NetworkSummary/NetworkSummary'
+import Header from '../../components/Header.tsx/Header'
 
 const Ping = () => {
   const [ address, setAddress ] = useState<string>("")
@@ -43,6 +44,7 @@ const Ping = () => {
 
   return (
     <View>
+      <Header />
       <NetworkSummary />
       <PingInput
         addressHandler={setAddress}
