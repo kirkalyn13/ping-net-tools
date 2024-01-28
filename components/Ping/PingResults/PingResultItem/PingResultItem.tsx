@@ -10,7 +10,6 @@ const isSuccess = (status: number): boolean => ( status >= 200 && status < 300 )
 const cleanErrorString = (error: string): string => error.replace(/^TypeError: /, '')
 
 const PingResultItem = ({ result }: PingResultItemProps) => {
-  console.log(result)
   return (
     <View 
       key={result.iteration}

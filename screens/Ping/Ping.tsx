@@ -32,8 +32,8 @@ const Ping = () => {
             .then((result: PingResult) => setCurrentResult(result))
             .catch((error: Error) => {
                 setCurrentResult({
-                  iteration: 1,
-                  status: 400,
+                  iteration: i,
+                  status: 500,
                   time: 0,
                   error: error.toString()
                 })
