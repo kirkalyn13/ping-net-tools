@@ -6,12 +6,17 @@ interface PingResultItemProps {
     result: PingResult
 }
 
+const isSuccess = (status: number): boolean => ( status >= 200 && status < 300 ) ? true: false
+
 const PingResultItem = ({ result }: PingResultItemProps) => {
   return (
     <View 
       key={result.iteration}
       style={styles.container}>
-      <Text style={styles.failed}>{result.status}</Text>
+      <Text>{result.iteration}</Text>
+      <Text style={isSuccess(result.status) ? styles.success : styles.failed}>
+        {result.status}
+      </Text>
       <Text>{result.time} ms</Text>
     </View>
   )
