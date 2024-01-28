@@ -19,6 +19,7 @@ const Ping = () => {
         const startTime = Date.now()
         fetch(getFullAddress(address))
           .then((response) => {
+            console.log(response)
             if (response.status === 200) {
               const endTime = Date.now()
               const timeTaken = endTime - startTime
