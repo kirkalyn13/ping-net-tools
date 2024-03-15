@@ -5,6 +5,7 @@ import PingResults from '../../components/Ping/PingResults/PingResults'
 import { getFullAddress } from '../../utilities/helper'
 import NetworkSummary from '../../components/NetworkSummary/NetworkSummary'
 import Header from '../../components/Header/Header'
+import styles from './Ping.styles'
 
 const Ping = () => {
   const [ address, setAddress ] = useState<string>("")
@@ -56,7 +57,7 @@ const Ping = () => {
   const disableButton: boolean = address === "" || !iterations
 
   return (
-    <View>
+    <View style={styles.container}>
       <Header />
       <NetworkSummary />
       <PingInput
