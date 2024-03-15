@@ -58,7 +58,6 @@ const Ping = () => {
 
   return (
     <View style={styles.container}>
-      <Header />
       <NetworkSummary />
       <PingInput
         addressHandler={setAddress}
