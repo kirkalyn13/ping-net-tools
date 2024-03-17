@@ -7,9 +7,6 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         padding: 8,
-        marginBottom: 24,
-        borderBottomWidth: 1,
-        borderBottomColor:  COLOR_PRIMARY,
       },
       textInputContainer: {
         width: "60%",

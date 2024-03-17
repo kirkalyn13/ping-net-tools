@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NativeStackNavigationOptions, createNativeStackNavigator } from '@react-navigation/native-stack';
 import { COLOR_LIGHT_PRIMARY, COLOR_PRIMARY_TEXT } from './styles/Colors.styles';
 import Header from './components/Header/Header';
 import PingScreen from './screens/PingScreen/PingScreen';
@@ -40,7 +40,7 @@ export default function App() {
   );
 }
 
-const screenOptions: any = {
+const screenOptions: NativeStackNavigationOptions = {
   headerStyle: {
     backgroundColor: COLOR_LIGHT_PRIMARY,
   },
@@ -48,4 +48,5 @@ const screenOptions: any = {
   headerTitleStyle: {
       fontWeight: 'bold',
   },
+  animation: "fade"
 }
