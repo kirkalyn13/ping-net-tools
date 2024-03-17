@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { COLOR_LIGHT_PRIMARY, COLOR_WHITE } from '../../styles/Colors.styles';
+import { COLOR_LIGHT_PRIMARY, COLOR_PRIMARY } from '../../styles/Colors.styles';
 
 export const styles = StyleSheet.create({
     container: {
@@ -7,12 +7,9 @@ export const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       backgroundColor: COLOR_LIGHT_PRIMARY,
-      padding: 8,
-    },
-    title: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: COLOR_WHITE,
+      paddingVertical: 16,
+      borderBottomWidth: 1,
+      borderBottomColor:  COLOR_PRIMARY,
     },
     iconContainer: {
       width: "100%",

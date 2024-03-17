@@ -6,6 +6,7 @@ import { getFullAddress } from '../../utilities/helper'
 import NetworkSummary from '../../components/NetworkSummary/NetworkSummary'
 import Header from '../../components/Header/Header'
 import styles from './PingScreen.styles'
+import NavBar from '../../components/NavBar/NavBar'
 
 const PingScreen = () => {
   const [ address, setAddress ] = useState<string>("")
@@ -58,6 +59,7 @@ const PingScreen = () => {
 
   return (
     <View style={styles.container}>
+      <NavBar />
       <NetworkSummary />
       <PingInput
         addressHandler={setAddress}
