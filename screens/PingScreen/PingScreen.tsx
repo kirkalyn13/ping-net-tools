@@ -5,9 +5,9 @@ import PingResults from '../../components/Ping/PingResults/PingResults'
 import { getFullAddress } from '../../utilities/helper'
 import NetworkSummary from '../../components/NetworkSummary/NetworkSummary'
 import Header from '../../components/Header/Header'
-import styles from './Ping.styles'
+import styles from './PingScreen.styles'
 
-const Ping = () => {
+const PingScreen = () => {
   const [ address, setAddress ] = useState<string>("")
   const [ iterations, setIterations ] = useState<number>(1)
   const [ currentResult, setCurrentResult ] = useState<PingResult | null>(null)
@@ -72,4 +72,4 @@ const Ping = () => {
   )
 }
 
-export default Ping
+export default PingScreen
