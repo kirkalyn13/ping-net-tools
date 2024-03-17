@@ -6,10 +6,9 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: 16,
-        marginBottom: 24,
-        borderBottomWidth: 1,
-        borderBottomColor:  COLOR_PRIMARY,
+        paddingTop: 24,
+        paddingHorizontal: 16,
+        marginBottom: 8,
       },
       connected: {
         paddingVertical: 2,

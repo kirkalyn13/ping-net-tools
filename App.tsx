@@ -1,13 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import styles from './styles/App.styles';
 import { View } from 'react-native';
-import Ping from './screens/Ping/Ping';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import History from './screens/History/History';
-import { getHeaderStyles } from './utilities/headerStyles';
 import { COLOR_LIGHT_PRIMARY, COLOR_PRIMARY_TEXT } from './styles/Colors.styles';
 import Header from './components/Header/Header';
+import Ping from './screens/Ping/Ping';
+import CellularInfo from './screens/CellularInfo/CellularInfo';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,7 +23,7 @@ export default function App() {
             />
             <Stack.Screen
               name="History"
-              component={History}
+              component={CellularInfo}
               options={{title: "History"}}
             />
           </Stack.Navigator>
