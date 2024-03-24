@@ -3,6 +3,7 @@ import { Text, View } from 'react-native'
 import { useNetInfo } from "@react-native-community/netinfo"
 import * as Cellular from 'expo-cellular'
 import styles from './CellularInfo.styles'
+import Map from './Map/Map'
 
 const getTechnology = (responseCode: number) => {
     if (responseCode === 0) return "UNKNOWN"
@@ -54,6 +55,7 @@ const CellularInfo = () => {
                     >ALLOWED
                 </Text>
             </View>
+            <Map />
         </View>
     )
 }
