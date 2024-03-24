@@ -1,14 +1,17 @@
 import { StyleSheet } from 'react-native'
-import { COLOR_GREEN, COLOR_PRIMARY, COLOR_RED, COLOR_SECONDARY_TEXT, COLOR_WHITE } from '../../styles/Colors.styles'
+import { COLOR_GREEN, COLOR_SECONDARY_TEXT, COLOR_WHITE } from '../../styles/Colors.styles'
 
 const styles = StyleSheet.create({
       container: {
+        flexDirection: "column",
+        marginTop: 24,
+      },
+      infoContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        paddingTop: 24,
+        paddingVertical: 8,
         paddingHorizontal: 16,
-        marginBottom: 8,
       },
       connected: {
         paddingVertical: 2,
@@ -25,15 +28,15 @@ const styles = StyleSheet.create({
         backgroundColor: COLOR_SECONDARY_TEXT,
         color: COLOR_WHITE
       },
-      networkTypeContainer: {
+      cellInfoContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
       },
-      networkTypeLabel: {
+      cellInfoLabel: {
         fontWeight: "bold"
       },
-      networkTypeValue: {
+      cellInfoValue: {
         marginLeft: 8,
       }
   });
