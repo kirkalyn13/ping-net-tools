@@ -1,18 +1,17 @@
-import React from 'react'
 import { View, Text, FlatList, ActivityIndicator } from 'react-native'
 import PingWaiting from './PingWaiting/PingWaiting'
 import PingResultItem from './PingResultItem/PingResultItem'
 import styles from './PingResults.style'
 import { COLOR_DARK_PRIMARY } from '../../../styles/Colors.styles'
+import { useSelector } from 'react-redux'
 
 interface PingResultsProps {
   url: string,
-  results: PingResult[],
   loading: boolean
 }
 
-const PingResults = ({ url, results = [], loading }: PingResultsProps) => {
-  const sortResults = (results: PingResult[]): PingResult[] => results.sort((a, b) => a.iteration - b.iteration)
+const PingResults = ({ url, loading }: PingResultsProps) => {
+  const pingResults = useSelector((state: any) => state.pingResults.data)
 
   const listHeader = () => {
     return (
@@ -27,9 +26,9 @@ const PingResults = ({ url, results = [], loading }: PingResultsProps) => {
     <View style={styles.container}>
         { !loading ?
         <>
-          {results.length !== 0 && listHeader()}
+          {pingResults.length !== 0 && listHeader()}
           <FlatList
-            data={sortResults(results)}
+            data={pingResults}
             ListEmptyComponent={<PingWaiting />}
             renderItem={({item}) => {
               return <PingResultItem result={item} />
