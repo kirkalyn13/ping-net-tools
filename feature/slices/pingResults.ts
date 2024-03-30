@@ -1,4 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
+import storage from '@react-native-async-storage/async-storage'
+import { persistReducer } from 'redux-persist'
+
+const persistConfig = {
+    key: "pingResults",
+    storage
+}
 
 const initialFieldValues: PingResult[] = []
 
@@ -20,4 +27,4 @@ export const pingResultsSlice = createSlice({
 })
 
 export const { addResult, clearResults } = pingResultsSlice.actions
-export default pingResultsSlice.reducer
+export default persistReducer(persistConfig, pingResultsSlice.reducer)
