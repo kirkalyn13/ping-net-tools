@@ -5,13 +5,18 @@ import PingResults from '../../components/Ping/PingResults/PingResults'
 import { getFullAddress } from '../../utilities/helper'
 import NetworkSummary from '../../components/NetworkSummary/NetworkSummary'
 import Header from '../../components/Header/Header'
+import styles from './PingScreen.styles'
+import NavBar from '../../components/NavBar/NavBar'
+import { useDispatch, useSelector } from 'react-redux'
+import { addResult, clearResults } from '../../feature/slices/pingResults'
 
-const Ping = () => {
+const PingScreen = () => {
+  const pingResults = useSelector((state: any) => state.pingResults.data)
   const [ address, setAddress ] = useState<string>("")
   const [ iterations, setIterations ] = useState<number>(1)
   const [ currentResult, setCurrentResult ] = useState<PingResult | null>(null)
-  const [ pingResults, setPingResults ] = useState<PingResult[]>([]);
   const [ loading, setLoading ] = useState(false)
+  const dispatch = useDispatch()
 
   const ping = () => {
       setCurrentResult(null)
@@ -45,8 +50,8 @@ const Ping = () => {
   } 
 
   useEffect(() => {
-    if (currentResult === null) setPingResults([])
-    else setPingResults([...pingResults, currentResult])
+    if (currentResult === null) dispatch(clearResults())
+    else dispatch(addResult(currentResult))
   },[ currentResult ])
 
   useEffect(() => {
@@ -56,8 +61,8 @@ const Ping = () => {
   const disableButton: boolean = address === "" || !iterations
 
   return (
-    <View>
-      <Header />
+    <View style={styles.container}>
+      <NavBar />
       <NetworkSummary />
       <PingInput
         addressHandler={setAddress}
@@ -66,10 +71,9 @@ const Ping = () => {
         disableButton={disableButton}/>
       <PingResults 
         url={getFullAddress(address)}
-        results={pingResults}
         loading={loading} />
     </View>
   )
 }
 
-export default Ping
+export default PingScreen

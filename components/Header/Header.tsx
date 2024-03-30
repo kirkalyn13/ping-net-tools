@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
 import styles from './Header.styles'
+import NavBar from '../NavBar/NavBar'
 
 const getSrcPath = require("../../assets/images/logo.png")
 

@@ -9,8 +9,8 @@ const NetworkSummary = () => {
     return (
         <View style={styles.container}>
             <View style={styles.networkTypeContainer}>
-                <Text style={styles.networkType}>Network Type: </Text>
-                <Text style={styles.networkTypeLabel}>{netInfo.type.toUpperCase()}</Text>
+                <Text style={styles.networkTypeLabel}>Network Type: </Text>
+                <Text style={styles.networkTypeValue}>{netInfo.type.toUpperCase()}</Text>
             </View>
             <Text
                 style={netInfo.isConnected?.toString() ? styles.connected : styles.notConnected}
