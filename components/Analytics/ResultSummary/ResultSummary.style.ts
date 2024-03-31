@@ -12,10 +12,16 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         marginBottom: 16
       },
+      infoContainer: {
+        width: "100%",
+        textAlign: "center",
+        fontWeight: "bold",
+        marginTop: 16
+      },
       percentage: {
         fontSize: 30, 
         fontWeight: "bold"
     }
-  });
+  })
 
 export default styles

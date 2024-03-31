@@ -11,7 +11,6 @@ const Analytics = () => {
     
     return (
         <View style={styles.container}>
-            <ResultTrend />
             {pingResults.length > 1 ?
             <>
                 <ResultSummary />

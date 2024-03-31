@@ -4,17 +4,23 @@ import { COLOR_DARK_PRIMARY, COLOR_LIGHT_PRIMARY, COLOR_PRIMARY } from '../../..
 import { Text } from "react-native"
 import styles from "./ResultTrend.style"
 
+
 const ResultTrend = () => {
     const pingResults = useSelector((state: any) => state.pingResults.data)
     
-    const lineData = pingResults.map((result: PingResult) => {
+    const lineData: LineData[] = pingResults.map((result: PingResult) => {
         if (result.status !== 200) return {value: 0}
         return {value: result.time}
     })
 
+    const minRTT: number = Math.min(...lineData.map((data: LineData) => data.value))
+    const maxRTT: number = Math.max(...lineData.map((data: LineData) => data.value))
+    const aveRTT: number = Math.floor((lineData.map((data: LineData) => data.value)
+        .reduce((curr: number, acc: number) => curr + acc, 0)) / lineData.length)
+
     return (
         <>
-            <Text style={styles.title}>Trend</Text>
+            <Text style={styles.title}>Round Trip Times (ms)</Text>
             <LineChart
                 areaChart
                 curved
@@ -30,6 +36,9 @@ const ResultTrend = () => {
                 endFillColor={COLOR_LIGHT_PRIMARY}
                 endOpacity={0.3}
             />
+            <Text style={styles.title}>
+                Min: {minRTT}ms, Max: {maxRTT}ms, Ave: {aveRTT}ms
+            </Text>
         </>
   )
 }
