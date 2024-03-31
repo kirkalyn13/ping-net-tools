@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
         height: "100%",
         paddingHorizontal: 8,
         backgroundColor: COLOR_LIGHT_PRIMARY,
+        overflow: "scroll"
     },
   });
 

@@ -31,6 +31,7 @@ const CellularInfo = () => {
             </View>
         )
     }
+    
     return (
         <View style={styles.container}>
             <View style={styles.infoContainer}>
