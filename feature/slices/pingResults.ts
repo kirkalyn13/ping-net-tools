@@ -27,4 +27,5 @@ export const pingResultsSlice = createSlice({
 })
 
 export const { addResult, clearResults } = pingResultsSlice.actions
-export default persistReducer(persistConfig, pingResultsSlice.reducer)
+export default pingResultsSlice.reducer
+// export default persistReducer(persistConfig, pingResultsSlice.reducer)
