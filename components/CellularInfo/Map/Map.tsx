@@ -4,6 +4,7 @@ import MapView, { Marker } from 'react-native-maps'
 import * as Location from 'expo-location'
 import styles from './Map.styles'
 import { COLOR_DARK_PRIMARY } from '../../../styles/Colors.styles'
+import { getCellSites } from '../../../services/cellsite'
 
 
 const defaultLocation = {
@@ -23,8 +24,9 @@ const defaultCoords = {
 const getIconPath = require("../../../assets/images/phone.png")
 
 const Map = () => {
-  const [ location, setLocation ] = useState<any>(defaultCoords);
-  const [ errorMsg, setErrorMsg ] = useState<any>(null);
+  const [ location, setLocation ] = useState<any>(defaultCoords)
+  const [ errorMsg, setErrorMsg ] = useState<any>(null)
+  const [ cellSites, setCellSites ] = useState<any>([])
 
   useEffect(() => {
     (async () => {
@@ -38,6 +40,7 @@ const Map = () => {
       let location = await Location.getCurrentPositionAsync({})
       setLocation(location)
     })()
+    setCellSites(getCellSites())
   }, [])
 
   return (
