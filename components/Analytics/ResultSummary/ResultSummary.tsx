@@ -20,7 +20,8 @@ const ResultSummary = () => {
         const failedResults: number = totalResults - successResults
         setTotal(totalResults)
         setSuccess(successResults)
-        setPercentage((totalResults/successResults)*100)
+        setFailed(failedResults)
+        setPercentage((successResults/totalResults)*100)
         setPieData([
             {value: successResults, color: COLOR_PRIMARY},
             {value: failedResults, color: COLOR_SECONDARY_TEXT}
@@ -44,7 +45,7 @@ const ResultSummary = () => {
                 }}
             />
             <Text style={styles.infoContainer}>
-                Sent: {total}, Received: {success}, Failed: {failed} ({percentage - 100})% loss
+                Sent: {total}, Received: {success}, Failed: {failed} ({Math.abs(percentage - 100)})% loss
             </Text>
         </View>
     )
